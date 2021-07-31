@@ -12,7 +12,7 @@
                     @method('DELETE')
                     <button class="btn btn-sm btn-danger" type="submit"
                             onclick="return confirm('{{ __('Are you sure?') }}')"> {{ __('Delete') }}</button>
-                </form>
+                    </form>
 
                 </td>
             </tr>
