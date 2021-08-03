@@ -20,7 +20,8 @@ class ChecklistService
             ]
         );
 
-
+        $checklist->touch();
+        
         return $checklist;
     }
 

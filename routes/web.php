@@ -16,14 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', 'welcome');
 
 Auth::routes();
 
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => ['auth','save_last_action_timestamp']], function() {
     Route::get('welcome',[PageController::class,'welcome'])
     ->name('welcome');
     Route::get('consultation',[PageController::class,'consultation'])
