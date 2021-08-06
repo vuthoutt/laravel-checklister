@@ -74,6 +74,12 @@
                                         </use>
                                     </svg>
                                     {{ $checklist['name'] }}
+                                    @livewire('completed-tasks-counter', [
+                                        'completed_tasks' => count($checklist['user_tasks']),
+                                        'tasks_count' => count($checklist['tasks']),
+                                        'checklist_id' => $checklist['id']
+                                    ])
+
                                     @if ($checklist['is_new'])
                                         <span class="badge badge-info">NEW</span>
                                     @elseif ($checklist['is_updated'])

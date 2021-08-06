@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPositionToTasksTable extends Migration
+class AddUsersFieldsToTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,9 @@ class AddPositionToTasksTable extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->unsignedInteger('position')->nullable();;
+            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('task_id')->nullable()->constrained();
+            $table->timestamp('completed_at')->nullable();
         });
     }
 
