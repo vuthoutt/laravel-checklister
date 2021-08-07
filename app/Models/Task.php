@@ -8,11 +8,25 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+
 class Task extends Model implements HasMedia
 {
     use HasFactory, SoftDeletes, InteractsWithMedia;
 
-    protected $fillable = ['checklist_id','name','description','position','user_id','task_id','completed_at'];
+    protected $fillable = [
+        'checklist_id',
+        'name', 'description',
+        'position', 'user_id',
+        'task_id',
+        'completed_at',
+        'added_to_my_day_at',
+        'is_important',
+        'due_date',
+    ];
+
+    protected $dates = [
+        'due_date'
+    ];
 
     public function registerMediaConversions(Media $media = null): void
     {
